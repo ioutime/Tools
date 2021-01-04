@@ -25,6 +25,35 @@ def end():
     '''
     sys.exit()
 
+def judge_type(file_path):
+    '''
+    功能：判断文件类型
+    '''
+    with open(file_path,'r+',encoding='UTF-8') as h:
+        filetype = h.name.split('.')[-1]
+        print(filetype)
+        if filetype == 'py':
+            annotation = annotation2 = "'''"
+            write_annotation(file_path,annotation,annotation2)
+        elif filetype == 'c' or filetype == 'cpp' or filetype == 'java' or filetype == 'js' or  filetype == 'go':
+            annotation = "/*"
+            annotation2 = "*/"
+            write_annotation(file_path,annotation,annotation2)
+        elif filetype =='php':
+            annotation = "<!--"
+            annotation2 = "-->"
+            write_annotation(file_path,annotation,annotation2)
+        else:
+            c = messagebox.askyesno('提示', '未知文件类型，是否继续,继续可能出现注释出错')#是/否，返回值true/false
+            if c ==True:
+                annotation = annotation2 = "'''"
+                write_annotation(file_path,annotation,annotation2)
+            else :
+                messagebox.showinfo('提示','未成功')
+        h.close()
+
+
+
 def judge():
     '''
     功能：判断是否要加注释
@@ -45,19 +74,22 @@ def judge():
             if num >=4:
                 a = messagebox.askyesno('提示', '可能已经有文件头注释，是否继续')#是/否，返回值true/false
                 if a==True:
-                    write_annotation(file_path)
+                    # write_annotation(file_path)
+                    judge_type(file_path)
             elif num2 ==2:
                 b = messagebox.askyesno('提示', '可能已经有文件头注释，是否继续')#是/否，返回值true/false
                 if b==True:
-                    write_annotation(file_path)
+                    # write_annotation(file_path)
+                    judge_type(file_path)
             else:
-                write_annotation(file_path)
+                # write_annotation(file_path)
+                judge_type(file_path)
     except:
         messagebox.showwarning('提示','judge函数出错了')
 
 
 
-def write_annotation(file_path): 
+def write_annotation(file_path,annotation,annotation2): 
     '''
     功能：写入注释
     '''
@@ -77,13 +109,13 @@ def write_annotation(file_path):
             date = time.strftime("%Y/%m/%d  %H:%M:%S",time.localtime())     
             content = f.read()
             f.seek(0, 0)
-            signature = "'''\n\
+            signature = "{5}\n\
 @FILE    :   {0}\n\
 @DSEC    :   {1}\n\
 @AUTHOR  :   {2}\n\
 @DATE    :   {3}\n\
 @VERSION :   {4}\n\
-'''\n".format (filename,function,author,date,version)
+{6}\n".format (filename,function,author,date,version,annotation,annotation2)
             f.write(signature+content)
             messagebox.showinfo('提示','成功')
             f.close()
@@ -91,6 +123,8 @@ def write_annotation(file_path):
         messagebox.showwarning('提示','路径未选择')
     except:
         messagebox.showwarning('提示','write_annotation函数出错了')
+
+
 
 
         
