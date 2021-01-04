@@ -1,9 +1,16 @@
+'''
+@FILE    :   main.py
+@DSEC    :   自动生成文件顶部注释
+@AUTHOR  :   ioutime
+@DATE    :   2021/01/04  12:21:51
+@VERSION :   1.0
+'''
 import time
 import os
 import sys
 import base64
 import tkinter as tk
-from logo import img#自己的包
+from picture import img#自己的包
 from tkinter import Label
 from tkinter import StringVar
 from tkinter import Button
