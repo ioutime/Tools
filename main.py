@@ -20,9 +20,15 @@ from tkinter.filedialog import askopenfilename
 
 
 def end():
+    '''
+    功能：退出程序
+    '''
     sys.exit()
 
-def judge(): 
+def judge():
+    '''
+    功能：判断是否要加注释
+    ''' 
     file_path = askopenfilename()
     try:
         with open(file_path,'r+',encoding='UTF-8') as g:
@@ -52,6 +58,9 @@ def judge():
 
 
 def write_annotation(file_path): 
+    '''
+    功能：写入注释
+    '''
     try :
         with open(file_path,'r+',encoding='UTF-8') as f:
             filename = f.name
@@ -92,11 +101,11 @@ root.geometry('+300+150')
 root.geometry('350x250')
 root.resizable(width=False, height=False)
 try:
-    tmp = open("tmp.ico","wb+")
-    tmp.write(base64.b64decode(img))
-    tmp.close()
-    root.iconbitmap("tmp.ico")
-    os.remove("tmp.ico")
+    iou = open("iou.ico","wb+")
+    iou.write(base64.b64decode(img))
+    iou.close()
+    root.iconbitmap("iou.ico")
+    os.remove("iou.ico")
     # root.iconbitmap(default = r'精灵球.ico')
 except:
     pass
