@@ -1,0 +1,8 @@
+*pycache*/
+temp.py
+dist/
+build/
+*.spec
+tempCodeRunnerFile.py
+gitee.*
+打包结果/gitte.*
