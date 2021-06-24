@@ -10,7 +10,7 @@
         '''<br>
 
 **用法：** <br>
-    1、可以将[main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)和[picture.py](https://github.com/ioutime/Tools/Script_Annotation/blob/master/picture.py)放在同一个目录下,运行[main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)<br>
+    1、可以将[main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)和[picture.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/picture.py)放在同一个目录下,运行[main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)<br>
     2、直接运行打包结果里的exe程序<br>
 <br>
 

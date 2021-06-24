@@ -15,6 +15,7 @@
 
 将[blog.exe](https://github.com/ioutime/Tools/blob/master/blog-hexo/打包结果/blog.exe)复制到你博客创建的文件夹下，为其创建快捷键，将快捷键放在好打开的位置上。
 
+
 ![](/img/blog.png)
 
 双击打开刚刚创建的快捷键就可以使用了。
