@@ -24,4 +24,4 @@
 解决思路：将图片转成py文件,将其看成一个包导入<br>
     1、将图片转成py文件,eg：[picture.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/picture.py),就是图片用base64<br>
     2、在要打包的[main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)文件中代码加入 **from xxx import img**<br>
-    3、将[picture.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/picture.py) 和[main.py](https://github.com/ioutime/Tools/Script_Annotation/main.py)文件放在同一个目录下,执行：pyinstaller -f -w [main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)
+    3、将[picture.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/picture.py) 和[main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)文件放在同一个目录下,执行：pyinstaller -f -w [main.py](https://github.com/ioutime/Tools/blob/master/Script_Annotation/main.py)
