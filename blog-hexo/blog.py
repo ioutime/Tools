@@ -22,6 +22,9 @@ def generate():
 def push():
     os.system('hexo d'+'&& ping -n 10 www.baidu.com')
 
+#本地
+def server():
+    os.system('hexo s'+'&& ping -n 3 www.baidu.com')
 
 root = tk.Tk()
 root.title('Blog’s Tool')
@@ -47,13 +50,16 @@ entry = Entry(root,width='13',font=('黑体',18),textvariable=function0)  # 设�
 entry.place(x=85,y=50)
 
 s = Button(root,text='新建',font=('华文行楷',15),bd=1,command = newpage)
-s.place(x=40,y=90)
+s.place(x=15,y=90)
 
 w = Button(root,text='渲染',font=('华文行楷',15),bd=1,command = generate)
-w.place(x=100,y=90)
+w.place(x=75,y=90)
+
+b = Button(root,text='本地',font=('华文行楷',15),bd=1,command = server)
+b.place(x=135,y=90)
 
 q = Button(root,text='推送',font=('华文行楷',15),bd=1,command = push)
-q.place(x=160,y=90)
+q.place(x=195,y=90)
 
 
 
