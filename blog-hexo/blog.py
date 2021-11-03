@@ -1,7 +1,7 @@
 import os
-import time
 import base64
 import tkinter as tk
+import webbrowser
 from picture import img#自己的包
 from tkinter import Label
 from tkinter import StringVar
@@ -24,7 +24,9 @@ def push():
 
 #本地
 def server():
-    os.system('hexo s'+'&& ping -n 3 www.baidu.com')
+    webbrowser.open("http://localhost:4000")
+    os.system('hexo s')
+    
 
 root = tk.Tk()
 root.title('Blog’s Tool')
