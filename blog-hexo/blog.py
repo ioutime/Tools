@@ -13,25 +13,29 @@ from tkinter import messagebox
 #新建文章
 def newpage():
     pagetitle  = function0.get()
-    os.system('hexo new '+pagetitle +'&& ping -n 5 www.baidu.com')
+    os.system('hexo new '+pagetitle +'&& ping -n 3 www.baidu.com')
 
 # 渲染
 def generate():
-    os.system('hexo g'+'&& ping -n 10 www.baidu.com')
+    os.system('hexo cl & hexo g'+'&& ping -n 10 www.baidu.com')
 #推送
 def push():
-    os.system('hexo d'+'&& ping -n 10 www.baidu.com')
+    os.system('hexo cl & hexo g & hexo d'+'&& ping -n 10 www.baidu.com')
 
 #本地
 def server():
     webbrowser.open("http://localhost:4000")
-    os.system('hexo s')
-    
+    os.system('hexo cl & hexo g & hexo s')
+
+#备份
+def backup():
+    os.system('''git add . & git commit -m "update" & git push origin hexo'''+'&& ping -n 4 www.baidu.com')
+
 
 root = tk.Tk()
 root.title('Blog’s Tool')
 root.geometry('+1000+350')
-root.geometry('260x160')
+root.geometry('260x185')
 root.resizable(width=False, height=False)
 # ico图片
 try:
@@ -52,16 +56,19 @@ entry = Entry(root,width='13',font=('黑体',18),textvariable=function0)  # 设�
 entry.place(x=85,y=50)
 
 s = Button(root,text='新建',font=('华文行楷',15),bd=1,command = newpage)
-s.place(x=15,y=90)
+s.place(x=25,y=90)
 
 w = Button(root,text='渲染',font=('华文行楷',15),bd=1,command = generate)
-w.place(x=75,y=90)
+w.place(x=105,y=90)
 
 b = Button(root,text='本地',font=('华文行楷',15),bd=1,command = server)
-b.place(x=135,y=90)
+b.place(x=185,y=90)
+
+bk = Button(root,text='备份',font=('华文行楷',15),bd=1,command = backup)
+bk.place(x=75,y=135)
 
 q = Button(root,text='推送',font=('华文行楷',15),bd=1,command = push)
-q.place(x=195,y=90)
+q.place(x=155,y=135)
 
 
 
