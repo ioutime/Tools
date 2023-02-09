@@ -19,3 +19,7 @@
 ![](/img/blog.png)
 
 双击打开刚刚创建的快捷键就可以使用了。
+
+```shell
+#打包命令
+Pyinstaller -F -w -i .\favicon.ico .\blog.py
